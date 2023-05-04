@@ -158,9 +158,9 @@ paper_btn = Button(frame1, image=paper_img, command=ispaper)
 scissor_btn = Button(frame1, image=scissor_img, command=isscissor)
 
 #rock_btn = Button(frame1, text="Rock",font=10,width=7, command=isrock)
-#
+
 #paper_btn = Button(frame1, text="Paper",font=10,width=7, command=ispaper)
-#
+
 #scissor_btn = Button(frame1, text="Scissor",font=10,width=7, command=isscissor)
 
 rock_btn.pack(side=LEFT, padx= 10)
