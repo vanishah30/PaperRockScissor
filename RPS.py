@@ -28,47 +28,49 @@ window.protocol("WM_DELETE_WINDOW", closing)
 window.title("Paper Rock Scissor Game")
 
 game_state = {
-    'me': None,
-    'opponent': None,
+    "me": None,
+    "opponent": None,
     # "my_score": 0,
     # "opponent_score": 0,
-    'my_selection': None,
-    'opponent_selection': None,
+    "my_selection": None,
+    "opponent_selection": None,
 }
 
 verify_result = [
-    ['Rock', 'Paper', 'opponent'],
-    ['Paper', 'Rock', 'me'],
-    ['Scissor', 'Rock', 'opponent'],
-    ['Rock', 'Scissor', 'me'],
-    ['Paper', 'Scissor', 'opponent'],
-    ['Scissor', 'Paper', 'me'],
-    
+    ["Rock", "Paper", "opponent"],
+    ["Paper", "Rock", "me"],
+    ["Scissor", "Rock", "opponent"],
+    ["Rock", "Scissor", "me"],
+    ["Paper", "Scissor", "opponent"],
+    ["Scissor", "Paper", "me"],
 ]
 
 
 def result_evaluate():
     if game_state["my_selection"] and game_state["opponent_selection"]:
-        my_sel_label.config(text= game_state["my_selection"] + "     ")
-        Opponent_sel_label.config(text = game_state["opponent_selection"])
+        my_sel_label.config(text=game_state["my_selection"] + "     ")
+        Opponent_sel_label.config(text=game_state["opponent_selection"])
     if game_state["my_selection"] == game_state["opponent_selection"]:
-        status_label.config(text= "Match Drawn")
+        status_label.config(text="Match Drawn")
     else:
         for x in verify_result:
-            if x[0] == game_state["my_selection"] and x[1] == game_state["opponent_selection"]:
-                status_label.config(text = game_state[x[2]] + " Won")
+            if (
+                x[0] == game_state["my_selection"]
+                and x[1] == game_state["opponent_selection"]
+            ):
+                status_label.config(text=game_state[x[2]] + " Won")
 
 
 def reset_game():
     rock_btn["state"] = "active"
     paper_btn["state"] = "active"
     scissor_btn["state"] = "active"
-    my_sel_label.config(text = "player     ")
-    Opponent_sel_label.config(text = "opponent")
-    status_label.config(text = "")
-    game_state['my_selection'] = None
-    game_state['opponent_selection'] = None
-    status_label.config(text = game_state['opponent'] + " connected")
+    my_sel_label.config(text="player     ")
+    Opponent_sel_label.config(text="opponent")
+    status_label.config(text="")
+    game_state["my_selection"] = None
+    game_state["opponent_selection"] = None
+    status_label.config(text=game_state["opponent"] + " connected")
 
 
 # disable the Button
@@ -76,10 +78,10 @@ def btn_disable():
     rock_btn["state"] = "disable"
     paper_btn["state"] = "disable"
     scissor_btn["state"] = "disable"
-    
 
 
 # if player select rock
+
 
 def isrock():
     game_state["my_selection"] = "Rock"
@@ -87,7 +89,9 @@ def isrock():
     result_evaluate()
     btn_disable()
 
+
 # if player select paper
+
 
 def ispaper():
     game_state["my_selection"] = "Paper"
@@ -104,7 +108,9 @@ def isscissor():
 
 
 # Add Labels, Frames and Button
-Label(window, text="Paper Rock Scissor", font="calibri 20 bold", fg="blue").pack(pady=20)
+Label(window, text="Paper Rock Scissor", font="calibri 20 bold", fg="blue").pack(
+    pady=20
+)
 
 frame = Frame(window)
 frame.pack()
@@ -146,9 +152,15 @@ status_label.pack(pady=20)
 frame1 = Frame(window)
 frame1.pack()
 
-rock_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor//Images//rock.png")
-paper_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor//Images//paper.png")
-scissor_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor//Images//scissor.png")
+rock_img = PhotoImage(
+    file="C://Users//gasha12//Hello_python//PaperRockScissor//Images//rock.png"
+)
+paper_img = PhotoImage(
+    file="C://Users//gasha12//Hello_python//PaperRockScissor//Images//paper.png"
+)
+scissor_img = PhotoImage(
+    file="C://Users//gasha12//Hello_python//PaperRockScissor//Images//scissor.png"
+)
 
 rock_btn = Button(frame1, image=rock_img, command=isrock)
 
@@ -156,16 +168,15 @@ paper_btn = Button(frame1, image=paper_img, command=ispaper)
 
 scissor_btn = Button(frame1, image=scissor_img, command=isscissor)
 
-#rock_btn = Button(frame1, text="Rock",font=10,width=7, command=isrock)
+# rock_btn = Button(frame1, text="Rock",font=10,width=7, command=isrock)
 
-#paper_btn = Button(frame1, text="Paper",font=10,width=7, command=ispaper)
+# paper_btn = Button(frame1, text="Paper",font=10,width=7, command=ispaper)
 
-#scissor_btn = Button(frame1, text="Scissor",font=10,width=7, command=isscissor)
+# scissor_btn = Button(frame1, text="Scissor",font=10,width=7, command=isscissor)
 
-
-rock_btn.pack(side=LEFT, padx= 10)
+rock_btn.pack(side=LEFT, padx=10)
 paper_btn.pack(side=LEFT, padx=10)
-scissor_btn.pack(padx= 10)
+scissor_btn.pack(padx=10)
 
 
 Button(
@@ -210,7 +221,7 @@ player_name_label.config(text=game_state["me"])
 
 while game_state["opponent"] == None and game_exit == False:
     tk_sleep(window, 1 / 10)
-status_label.config(text = game_state["opponent"] + " connected")
+status_label.config(text=game_state["opponent"] + " connected")
 
 
 start()
