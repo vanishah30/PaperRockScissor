@@ -150,7 +150,6 @@ rock_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor
 paper_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor//Images//paper.png")
 scissor_img = PhotoImage(file = "C://Users//gasha12//Hello_python//PaperRockScissor//Images//scissor.png")
 
-
 rock_btn = Button(frame1, image=rock_img, command=isrock)
 
 paper_btn = Button(frame1, image=paper_img, command=ispaper)
